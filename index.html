@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hochzeit Emilia & Philip – 05.06.2026</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #faf7f2;
+      color: #3b2f2f;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem 2rem;
+      background: #e9dac1;
+      gap: 0.5rem;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .nav a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: #3b2f2f;
+    }
+
+    .hero {
+    height: 80vh;
+    background: url("images/Image-1.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+    .hero-overlay {
+      background: rgba(250, 247, 242, 0.85);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      margin: 0 0.5rem;
+      background: #d8a47f;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #d8a47f;
+      color: #d8a47f;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .section.light {
+      background: #f0ebe5;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      text-align: center; /* Optional, alles mittig */
+    }
+
+    .timeline li {
+      margin-bottom: 2rem;
+    }
+
+    .timeline .time {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline .event {
+      font-size: 1rem;
+    }
+
+
+    .map {
+      width: 100%;
+      height: 300px;
+      margin-top: 1rem;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    .rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .rsvp-form button {
+      padding: 0.8rem;
+      background: #d8a47f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    .rsvp-form button:hover {
+      background: #c6865c;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .footer {
+      background: #e9dac1;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #3b2f2f;
+      text-decoration: underline;
+    }
+
+    /* Sprach-Overlay */
+    #language-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      z-index: 9999;
+    }
+
+    #language-overlay button {
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sprachwahl Overlay -->
+  <div id="language-overlay">
+    <h2>Bitte wähle deine Sprache / Proszę wybierz język</h2>
+    <div>
+      <button onclick="setLanguage('de')">Deutsch</button>
+      <button onclick="setLanguage('pl')">Polski</button>
+    </div>
+  </div>
+
+  <div id="content" style="display:none;">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">E & P</div>
+      <nav class="nav">
+        <a href="#our-day" data-lang="de">Unser Tag</a>
+        <a href="#location" data-lang="de">Location</a>
+        <a href="#rsvp" data-lang="de">Einladung</a>
+        <a href="#our-day" data-lang="pl" style="display:none;">Nasz dzień</a>
+        <a href="#location" data-lang="pl" style="display:none;">Miejsce</a>
+        <a href="#rsvp" data-lang="pl" style="display:none;">Zaproszenie</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1 data-lang="de">Emilia & Philip</h1>
+        <h1 data-lang="pl" style="display:none;">Emilia & Philip</h1>
+        <p data-lang="de">Wir heiraten am 05. Juni 2026</p>
+        <p data-lang="pl" style="display:none;">Bierzemy ślub 5 czerwca 2026</p>
+        <div class="buttons">
+          <a href="#rsvp" class="btn" data-lang="de">Zu-/Absage</a>
+          <a href="#rsvp" class="btn" data-lang="pl" style="display:none;">Odpowiedź</a>
+          <a href="#location" class="btn secondary" data-lang="de">Anfahrt</a>
+          <a href="#location" class="btn secondary" data-lang="pl" style="display:none;">Dojazd</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Day -->
+    <section id="our-day" class="section">
+      <h2 data-lang="de">Unser Ablauf</h2>
+      <h2 data-lang="pl" style="display:none;">Nasz dzień</h2>
+      <ul class="timeline">
+        <li data-lang="de">
+          <div class="time">11:00</div>
+          <div class="event">Standesamtliche Trauung bzw. Livestream</div>
+        </li>
+        <li data-lang="pl" style="display:none;">
+          <div class="time">11:00</div>
+          <div class="event">Transmisja na żywo ślubu</div>
+        </li>
+
+        <li data-lang="de">
+          <div class="time">13:00</div>
+          <div class="event">Sektempfang & Häppchen</div>
+        </li>
+        <li data-lang="pl" style="display:none;">
+          <div class="time">13:00</div>
+          <div class="event">Koktajl i przekąski</div>
+        </li>
+
+        <li data-lang="de">
+          <div class="time">14:00</div>
+          <div class="event">Familien- & Gruppenfotos</div>
+        </li>
+        <li data-lang="pl" style="display:none;">
+          <div class="time">14:00</div>
+          <div class="event">Zdjęcia rodzinne i grupowe</div>
+        </li>
+
+        <li data-lang="de">
+          <div class="time">18:00</div>
+          <div class="event">Abendessen & Party</div>
+        </li>
+        <li data-lang="pl" style="display:none;">
+          <div class="time">18:00</div>
+          <div class="event">Kolacja i zabawa</div>
+        </li>
+      </ul>
+    </section>
+
+
+
+    <!-- Location -->
+    <section id="location" class="section light">
+      <h2 data-lang="de">Location & Anfahrt</h2>
+      <h2 data-lang="pl" style="display:none;">Miejsce & Dojazd</h2>
+      <p data-lang="de">Geflügelsteig 84, 12355 Berlin</p>
+      <p data-lang="pl" style="display:none;">Geflügelsteig 84, 12355 Berlin</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.063881067315!2d13.485760076797321!3d52.405518444699005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8467d2eadb4d7%3A0x5a337708d4bc4d77!2sGefl%C3%BCgelsteig%2084%2C%2012355%20Berlin!5e0!3m2!1sde!2sde!4v1757922829521!5m2!1sde!2sde" width="600" height="450" style="border:0; max-width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section">
+      <h2 data-lang="de">Zu-/Absage</h2>
+      <h2 data-lang="pl" style="display:none;">Odpowiedź</h2>
+      
+      <p data-lang="de">Bitte gebt uns bis spätestens <strong>31.12.2025</strong> Bescheid.</p>
+      <p data-lang="pl" style="display:none;">Prosimy o odpowiedź do <strong>31.12.2025</strong>.</p>
+      
+      <!-- Deutsches Formular -->
+      <iframe id="form-de" width="640px" height="480px" 
+        src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__gg7aHxUNlQyUUtKTEgzMTY2U0ZZWFpXTVdEVkxPQi4u&embed=true" 
+        frameborder="0" marginwidth="0" marginheight="0" 
+        style="border: none; max-width:100%; max-height:100vh; display:none;" 
+        allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>
+      </iframe>      
+
+      <!-- Polnisches Formular -->
+      <iframe id="form-pl" width="640px" height="480px" 
+        src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__gg7aHxUQU1UUkZNVlhMT1RIQVVZTkdDNjQ4QlA3Vi4u&embed=true" 
+        frameborder="0" marginwidth="0" marginheight="0" 
+        style="border: none; max-width:100%; max-height:100vh; display:none;" 
+        allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>
+      </iframe>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 Emilia & Philip</p>
+      <a href="mailto:emiliaopel30@gmail.com">E-Mail Kontakt</a>
+    </footer>
+  </div>
+
+  <script>
+  function setLanguage(lang) {
+    document.getElementById('language-overlay').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    
+    if(lang === 'pl'){
+      document.querySelectorAll('[data-lang="pl"]').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('[data-lang="de"]').forEach(el => el.style.display = 'none');
+      
+      // Formulare
+      document.getElementById('form-de').style.display = 'none';
+      document.getElementById('form-pl').style.display = 'block';
+    } else {
+      document.querySelectorAll('[data-lang="pl"]').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('[data-lang="de"]').forEach(el => el.style.display = 'block');
+      
+      // Formulare
+      document.getElementById('form-de').style.display = 'block';
+      document.getElementById('form-pl').style.display = 'none';
+    }
+  }
+  </script>
+
+</body>
+</html>
