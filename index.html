@@ -29,26 +29,45 @@
       font-size: 1.5rem;
     }
 
-    .nav a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: #3b2f2f;
-    }
+    .nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Abstand zwischen den Links */
+  flex-wrap: wrap; /* falls der Platz zu klein wird, umbrechen */
+}
+
+.nav a {
+  text-decoration: none;
+  color: #3b2f2f;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block; /* wichtig, damit sie nebeneinander bleiben */
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #d8a47f; /* kleiner Hover-Effekt */
+}
+
 
     .hero {
-    height: 80vh;
-    background: url("images/Image-1.png") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  height: 80vh;
+  background: url("images/Image-1.png") center/contain no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
     .hero-overlay {
-      background: rgba(250, 247, 242, 0.85);
-      padding: 2rem;
-      border-radius: 12px;
-    }
+  background: rgba(250, 247, 242, 0.95); /* leicht mehr Deckkraft für besseren Kontrast */
+  padding: 2.5rem 3rem; 
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* leichter Schatten für Hervorhebung */
+  transform: translateY(50px); /* nach unten verschieben */
+}
+
 
     .hero h1 {
       font-size: 2.5rem;
